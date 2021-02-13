@@ -13,11 +13,16 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            //ProductTest();
+            ProductTest();
+            //CategoryTest();
+        }
+
+        private static void CategoryTest()
+        {
             CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
             foreach (var category in categoryManager.GetAll())
             {
-                Console.WriteLine(category.CategoryId+" "+category.CategoryName);
+                Console.WriteLine(category.CategoryId + " " + category.CategoryName);
             }
         }
 
@@ -25,9 +30,9 @@ namespace ConsoleUI
         {
             IProductService productManager = new ProductManager(new EfProductDal());
 
-            foreach (var item in productManager.GetByUnitPrice(50, 100))
+            foreach (var item in productManager.GetProductDetailDtos())
             {
-                Console.WriteLine(item.ProductId + " " + item.CategoryId + " " + item.ProductName + " " + item.UnitPrice + " " + item.UnitsInStock);
+                Console.WriteLine(item.ProductName+" "+item.CategoryName);
             }
         }
     }

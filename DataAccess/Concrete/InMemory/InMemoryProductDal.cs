@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstract;
 using Entitiy.Concrete;
+using Entitiy.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,10 @@ namespace DataAccess.Concrete.InMemory
             return _products;
         }
 
+        public List<ProductDetailDto> GetProductDetails()
+        {
+            throw new NotImplementedException();
+        }
 
         public void Update(Product product)
         {
